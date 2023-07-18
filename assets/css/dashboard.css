@@ -1,0 +1,94 @@
+
+
+.japanese {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.main {
+    background-color: #292929;
+    color: white;
+    height: 100vh;
+}
+
+
+.centered-welcome {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 15%);
+}
+
+a {
+    text-decoration: none !important;
+    color: white;
+}
+
+a:hover {
+    color: rgb(21, 165, 255);
+}
+
+navbar-brand {
+    font-size: 1.5rem;
+}
+
+.card_group2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0%, 300%);
+}
+
+.card_group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0%, 100%);
+}
+
+
+.card {
+    width: 18rem;
+    height: 10rem !important;
+    margin: 1rem;
+    background-color: #292929;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: transform 0.1s;
+}
+
+.card-header {
+    
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Make media for mobile screens */
+@media (max-width: 768px) {
+    .card_group {
+        transform: translate(0%, 50%);
+    }
+
+    .card {
+        width: 18rem;
+        margin: 1rem;
+        background-color: #292929;
+        color: white;
+        border: 1px solid white;
+        border-radius: 10px;
+        transition: transform 0.1s;
+    }
+
+    .card-header {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+    }
+}

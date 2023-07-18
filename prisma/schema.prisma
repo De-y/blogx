@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-py"
+  interface = "sync"
+}
+
+datasource db {
+  provider = "sqlite"
+  url = "file:./dev.db"
+}
+
+model User {
+  id String @id @default(uuid())
+  email String
+  password String
+  name String?
+  active    Boolean  @default(true)
+  is_authenticated Boolean @default(true)
+}
+
+model Posts {
+  id Int @id @default(autoincrement())
+  title String
+  content String
+  image String @default("https://picsum.photos/200/300")
+  authorId String
+}
