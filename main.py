@@ -24,10 +24,22 @@ def load_user(_id):
       return user
     else:
       return None
-    
+
+@app.route('/blog')
+def blog():
+   return redirect('/')
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    post_count = Posts.prisma().count()
+    if post_count == 1:
+       post_count = 2
+    else:
+       post_count += 1
+    last_post = Posts.prisma().find_first(where={'id': post_count - 1})
+    last_post_2 = Posts.prisma().find_first(where={'id': post_count - 2})
+    last_post_3 = Posts.prisma().find_first(where={'id': post_count - 3})
+    return render_template('index.html', last_post=last_post, last_post_2=last_post_2, last_post_3=last_post_3)
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -51,7 +63,7 @@ def login():
     return redirect('/dashboard')
 
 @app.route('/post')
-def blog():
+def blog_post():
    post_id = request.args.getlist('post_id', type=int) 
    post = Posts.prisma().find_first(where={'id': post_id[0]})
    author = User.prisma().find_first(where={'id': post.authorId})
@@ -73,7 +85,6 @@ def dashboard():
     else:
        post_count += 1
     last_post = Posts.prisma().find_first(where={'id': post_count - 1})
-    print(last_post)
     return render_template('dashboard.html', post_count=post_count - 1, last_post=last_post)
 
 @app.route('/new_post')
@@ -87,9 +98,13 @@ def search():
   if request.method == 'POST':
     data = request.form
     posts = Posts.prisma().find_many(where={'title': {'contains': data['search']}})
-    if posts is None:
-      return render_template('nothing_found.html')
-    return render_template('search.html', posts=posts)
+    for post in posts:
+       print(post.title)
+    if not posts:
+      return render_template('couldnotfind.html')
+
+    p_count = len(posts)
+    return render_template('search.html', posts=posts, p_count=p_count)
 
 @app.route('/api/create_post', methods=['POST'])
 def create_post():

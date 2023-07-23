@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De-y's Blog | Search Results.</title>
+    <title>De-y's Blog | Could Not Find.</title>
     <link rel="stylesheet" href="/assets/css/dashboard.css">
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="/assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -34,18 +34,12 @@
     </nav>
     <div class="main">
         <div class="centered-welcome">
-            <h1>So we found {{p_count}} results for your search:</h1>
-            {% for post in posts %}
-            <br>
-            <!-- Create a bootstrap card -->
-            <div class="card bg-dark" style="width: 600px; text-align: center;">
-                <a href="/post?post_id={{post.id}}" style="color: white; text-emphasis: none;"><h1>{{post.title}}</h1></a>
-                <br>
-                <p style="color: white;">{{post.content[:75] + (post.content[75:] and '...')}}</p>
-                <a class="btn btn-outline-primary btn-md" style="width: 300px; align-self: center;" href="/post?post_id={{post.id}}">Read More</a>
-            </div>
-
-            {% endfor %}
+          <h1>We couldn't find any blog post regarding your search.</h1>
+          <br>
+        <form action="/search" method="POST">
+            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search"> <br>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
     </div>
 </body>

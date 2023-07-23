@@ -1,4 +1,8 @@
-
+body {
+    background-color: #292929;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
 
 .japanese {
     font-family: 'Noto Sans JP', sans-serif;
@@ -12,6 +16,10 @@
     background-color: #292929;
     color: white;
     height: 100vh;
+    border-radius: 10px;
+    background-image: url(../images/back-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -34,6 +42,54 @@ navbar-brand {
     font-size: 1.5rem;
 }
 
+navbar-main-brand {
+    font-size: 400px;
+}
+
+.sidebar-profile {
+    width: 25%;
+    height: 150%;
+    background-color: #292929;
+    color: white;
+    border: 1px solid white;
+    transition: transform 0.1s;
+    border-radius: 10px;
+    margin-right: 100%;
+    position: fixed;
+    overflow-y: scroll;
+    z-index: 1;
+    transform: translate(10%, 0%);
+}
+
+.animated-bg {
+
+    background-size: 100% 100%;
+    border-radius: 10px;
+    border-bottom: 0px;
+}
+
+.profile-img {
+    border-radius: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.side-by-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0%, 0%);
+
+}
+.sidebar-heading {
+    font-size: 4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: white;
+    text-align: center !important;
+}
 .card_group2 {
     display: flex;
     flex-wrap: wrap;
@@ -50,6 +106,14 @@ navbar-brand {
     transform: translate(0%, 100%);
 }
 
+.card_group3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0%, 0%);
+}
+
 
 .card {
     width: 18rem;
@@ -61,6 +125,20 @@ navbar-brand {
     border-radius: 10px;
     transition: transform 0.1s;
 }
+
+
+.card3 {
+    width: 20rem;
+    margin: 1rem;
+    background-color: #292929;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 20%;
+    transition: transform 0.1s;
+    transform: translate(-42.5%, 0%);
+}
+
 
 .card-header {
     
